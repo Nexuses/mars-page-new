@@ -23,7 +23,7 @@ export function Footer() {
 
           <div className="flex justify-center gap-4">
             <Link
-              href="https://www.facebook.com/MARSSolutionsGroup"
+              href="https://www.facebook.com/MARSSGJOBS/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B3262F] text-gray-700 hover:text-white transition-all duration-300"
@@ -31,7 +31,7 @@ export function Footer() {
               <Facebook size={20} />
             </Link>
             <Link
-              href="https://twitter.com/MARSSG"
+              href="https://x.com/MARS_SGCorp"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B3262F] text-gray-700 hover:text-white transition-all duration-300"
@@ -39,7 +39,7 @@ export function Footer() {
               <Twitter size={20} />
             </Link>
             <Link
-              href="https://www.linkedin.com/company/1947290/?trk=prof-exp-company-name"
+              href="https://www.linkedin.com/uas/login?session_redirect=%2Fcompany%2F1947290%2F%3Ftrk%3Dprof-exp-company-name"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B3262F] text-gray-700 hover:text-white transition-all duration-300"
@@ -47,7 +47,7 @@ export function Footer() {
               <Linkedin size={20} />
             </Link>
             <Link
-              href="https://www.instagram.com/marssg/"
+              href="https://www.instagram.com/marssolutionsgroup/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-[#B3262F] text-gray-700 hover:text-white transition-all duration-300"
