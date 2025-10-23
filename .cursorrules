@@ -1,0 +1,287 @@
+# MARS TalentFlex - Cursor AI Coding Rules
+
+## Project Overview
+This is a Next.js 14+ project for MARS TalentFlex, a talent acquisition platform. The project uses TypeScript, Tailwind CSS, and Supabase for backend services.
+
+## Tech Stack
+- **Framework**: Next.js 14+ with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom UI components with shadcn/ui
+- **Database**: Supabase
+- **Email**: Nodemailer with Gmail SMTP
+- **Deployment**: Netlify
+
+## Coding Standards
+
+### TypeScript Rules
+- Always use TypeScript with strict mode enabled
+- Define proper interfaces for all props and data structures
+- Use type assertions only when necessary and with proper validation
+- Prefer `interface` over `type` for object shapes
+- Use `const` assertions for immutable data
+- Always handle async/await with proper error handling
+
+### React/Next.js Rules
+- Use functional components with hooks
+- Always use `"use client"` directive for client-side components
+- Use proper Next.js imports (`next/link`, `next/image`, etc.)
+- Implement proper error boundaries
+- Use React.memo() for performance optimization when needed
+- Always clean up event listeners and subscriptions in useEffect
+
+### File Structure Rules
+```
+app/
+├── api/                 # API routes
+├── globals.css         # Global styles
+├── layout.tsx          # Root layout
+└── page.tsx           # Home page
+
+components/
+├── ui/                # Reusable UI components
+└── [feature].tsx      # Feature-specific components
+
+lib/
+├── supabase.ts        # Supabase client
+└── utils.ts          # Utility functions
+```
+
+### Component Naming
+- Use PascalCase for component names
+- Use descriptive names that indicate purpose
+- Suffix with `Section` for page sections (e.g., `HeroSection`)
+- Suffix with `Dialog` for modal components (e.g., `DemoBookingDialog`)
+
+### Styling Rules
+- Use Tailwind CSS classes exclusively
+- Follow mobile-first responsive design
+- Use consistent spacing scale (4, 8, 12, 16, 20, 24, 32, 40, 48, 64)
+- Use semantic color names from the design system
+- Maintain consistent component styling patterns
+
+### API Development Rules
+- All API routes must be in `app/api/` directory
+- Use proper HTTP status codes
+- Implement comprehensive error handling
+- Validate all input data
+- Use proper TypeScript types for request/response
+- Always include proper CORS headers if needed
+
+### Email Template Rules
+- Use consistent HTML email templates with inline CSS
+- Include both HTML and text versions
+- Use MARS branding colors (#B3262F for primary)
+- Include proper fallbacks for email clients
+- Always test email templates across different clients
+
+### Database Rules
+- Use Supabase client properly with error handling
+- Implement proper data validation
+- Use TypeScript interfaces for database types
+- Always handle connection errors gracefully
+
+### Error Handling
+- Use try-catch blocks for all async operations
+- Implement proper error logging
+- Show user-friendly error messages
+- Use toast notifications for user feedback
+- Never expose sensitive error details to users
+
+### Performance Rules
+- Optimize images with Next.js Image component
+- Use proper loading states
+- Implement lazy loading where appropriate
+- Minimize bundle size
+- Use proper caching strategies
+
+### Security Rules
+- Never commit sensitive data (API keys, passwords)
+- Use environment variables for configuration
+- Validate all user inputs
+- Implement proper authentication checks
+- Use HTTPS in production
+
+### Code Quality Rules
+- Write self-documenting code with clear variable names
+- Use consistent indentation (2 spaces)
+- Add comments for complex business logic
+- Keep functions small and focused
+- Use proper TypeScript types instead of `any`
+
+## Specific Project Rules
+
+### MARS Branding
+- Primary color: #B3262F (Mars Red)
+- Use MARS logo from `/public/images/MARS-1.webp`
+- Maintain consistent brand voice and messaging
+- Use professional, corporate tone
+
+### Form Handling
+- Always validate form inputs on both client and server
+- Use proper form state management
+- Implement loading states during submission
+- Show success/error feedback to users
+- Reset forms after successful submission
+
+### Email Integration
+- Use Gmail SMTP (smtp.gmail.com:587)
+- Include both HTML and text versions
+- Use consistent email templates
+- Include proper headers and metadata
+- Handle email sending errors gracefully
+
+### Component Patterns
+```typescript
+// Standard component structure
+interface ComponentProps {
+  // Define all props with proper types
+}
+
+export function ComponentName({ prop1, prop2 }: ComponentProps) {
+  // State management
+  const [state, setState] = useState<Type>(initialValue)
+  
+  // Event handlers
+  const handleEvent = useCallback(() => {
+    // Implementation
+  }, [dependencies])
+  
+  // Effects
+  useEffect(() => {
+    // Side effects
+    return () => {
+      // Cleanup
+    }
+  }, [dependencies])
+  
+  return (
+    <div className="proper-tailwind-classes">
+      {/* JSX content */}
+    </div>
+  )
+}
+```
+
+### API Route Pattern
+```typescript
+import { NextRequest, NextResponse } from 'next/server'
+
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
+
+export async function POST(request: NextRequest) {
+  try {
+    // Validate input
+    const body = await request.json()
+    
+    // Process data
+    const result = await processData(body)
+    
+    // Return response
+    return NextResponse.json({ success: true, data: result })
+  } catch (error) {
+    console.error('API Error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}
+```
+
+## Testing Guidelines
+- Write unit tests for utility functions
+- Test API endpoints with proper error cases
+- Test form validation and submission
+- Test responsive design across devices
+- Test email template rendering
+
+## Deployment Rules
+- Use Netlify for deployment
+- Configure proper environment variables
+- Set up proper redirects and headers
+- Monitor performance and errors
+- Use proper caching strategies
+
+## Git Workflow
+- Use descriptive commit messages
+- Create feature branches for new features
+- Always test before committing
+- Use proper pull request descriptions
+- Keep commits atomic and focused
+
+## Documentation
+- Update README.md for major changes
+- Document API endpoints
+- Include setup instructions
+- Document environment variables
+- Keep changelog updated
+
+## Code Review Checklist
+- [ ] TypeScript types are properly defined
+- [ ] Error handling is comprehensive
+- [ ] Components are properly structured
+- [ ] Styling follows design system
+- [ ] Performance is optimized
+- [ ] Security best practices followed
+- [ ] Tests are included where needed
+- [ ] Documentation is updated
+
+## Common Patterns to Follow
+
+### State Management
+```typescript
+const [formData, setFormData] = useState({
+  field1: '',
+  field2: '',
+})
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData(prev => ({
+    ...prev,
+    [e.target.name]: e.target.value
+  }))
+}
+```
+
+### API Calls
+```typescript
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+  setIsSubmitting(true)
+  
+  try {
+    const response = await fetch('/api/endpoint', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    
+    if (response.ok) {
+      // Handle success
+    } else {
+      // Handle error
+    }
+  } catch (error) {
+    console.error('Error:', error)
+  } finally {
+    setIsSubmitting(false)
+  }
+}
+```
+
+### Toast Notifications
+```typescript
+import { toast } from 'sonner'
+
+// Success
+toast.success("Operation completed successfully!")
+
+// Error
+toast.error("Something went wrong", {
+  description: "Please try again later."
+})
+```
+
+Remember: Always prioritize code readability, maintainability, and user experience. Follow these rules consistently to ensure a high-quality codebase that's easy to maintain and extend.

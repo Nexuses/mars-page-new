@@ -8,9 +8,17 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'mars-page',
+  description: 'MARS TalentFlex - Talent Acquisition Platform',
   generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/images/MARS-1.webp', sizes: '32x32', type: 'image/webp' },
+      { url: '/images/MARS-1.webp', sizes: '16x16', type: 'image/webp' },
+    ],
+    shortcut: '/images/MARS-1.webp',
+    apple: '/images/MARS-1.webp',
+  },
 }
 
 export default function RootLayout({
