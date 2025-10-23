@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { supabase, type DemoBooking } from "@/lib/supabase"
+// Removed Supabase import as we're now using SMTP email
 import { toast } from "sonner"
 
 interface DemoBookingDialogProps {
@@ -38,29 +38,32 @@ export function DemoBookingDialog({ open, onOpenChange }: DemoBookingDialogProps
     setIsSubmitting(true)
 
     try {
-      if (!supabase) {
-        throw new Error("Database connection not available")
+      const response = await fetch('/api/demo-booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        toast.success("Demo booking request submitted successfully!", {
+          description: "We'll get back to you shortly to confirm your demo.",
+        })
+
+        setFormData({
+          company_email: "",
+          name: "",
+          position: "",
+          preferred_date: "",
+          preferred_time: "",
+        })
+
+        onOpenChange(false)
+      } else {
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to submit demo booking')
       }
-
-      const { error } = await supabase
-        .from("demo_bookings")
-        .insert([formData as DemoBooking])
-
-      if (error) throw error
-
-      toast.success("Demo booking request submitted successfully!", {
-        description: "We'll get back to you shortly to confirm your demo.",
-      })
-
-      setFormData({
-        company_email: "",
-        name: "",
-        position: "",
-        preferred_date: "",
-        preferred_time: "",
-      })
-
-      onOpenChange(false)
     } catch (error) {
       console.error("Error submitting demo booking:", error)
       toast.error("Failed to submit booking request", {
