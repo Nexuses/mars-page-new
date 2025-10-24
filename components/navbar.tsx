@@ -18,7 +18,7 @@ export function Navbar() {
         <div className="flex items-center gap-[60px]">
         <Link href="/" className="flex items-center group">
           <img
-            src="/images/MARS-1.webp"
+            src="/images/mars-logo.png"
             alt="MARS Solutions Group"
             width={140}
             height={56}
