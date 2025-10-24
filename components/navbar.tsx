@@ -20,9 +20,9 @@ export function Navbar() {
           <img
             src="/images/mars-logo.png"
             alt="MARS Solutions Group"
-            width={140}
-            height={56}
-            className="h-auto w-[140px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
+            width={170}
+            height={68}
+            className="h-auto w-[170px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
           />
         </Link>
 
@@ -59,7 +59,7 @@ export function Navbar() {
               onMouseLeave={() => setOpenDropdown(null)}
             >
               <button className="flex items-center gap-1 text-base font-bold text-gray-800 transition-colors duration-200 hover:text-[#B3262F] py-2">
-                SOLUTIONS <ChevronDown size={16} />
+                Solutions <ChevronDown size={16} />
               </button>
               {openDropdown === 'solutions' && (
                 <div
@@ -69,19 +69,19 @@ export function Navbar() {
                 >
                   <div className="bg-white rounded-md shadow-lg py-2">
                     <Link href="https://marssg.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      MARSSG
+                      Mars Solutions Group
                     </Link>
                     <Link href="https://getreturnship.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      MARS RETURNSHIP
+                      Mars Returnship
                     </Link>
                     <Link href="https://giveovation.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      OVATION
+                      Ovation
                     </Link>
                     <Link href="https://www.marssg-healthcare.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      MARS HEALTHCARE
+                      Mars Healthcare
                     </Link>
                     <Link href="https://marsorbit.us/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      MARS ORBIT
+                      Mars Orbit
                     </Link>
                   </div>
                 </div>
