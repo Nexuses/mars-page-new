@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 export function LogoCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [isHovered, setIsHovered] = useState(false)
+  const isHoveredRef = useRef(false)
 
   useEffect(() => {
     const scrollElement = scrollRef.current
@@ -15,7 +15,8 @@ export function LogoCarousel() {
     const speed = 0.5 // pixels per frame
 
     const animate = () => {
-      if (!isHovered) {
+      // Only move if not hovered (pause on hover)
+      if (!isHoveredRef.current) {
         position -= speed
         
         // Reset position when we've scrolled exactly one set of logos
@@ -36,7 +37,7 @@ export function LogoCarousel() {
         cancelAnimationFrame(animationId)
       }
     }
-  }, [isHovered])
+  }, [])
 
   // Actual company logos
   const logos = [
@@ -49,6 +50,7 @@ export function LogoCarousel() {
     { name: "Webster Bank", src: "/conveyor-logos/webster bank.png" },
     { name: "GE", src: "/conveyor-logos/ge.png" },
     { name: "US Foods", src: "/conveyor-logos/usfoods.png" },
+    { name: "Northwestern", src: "/conveyor-logos/northwestern.png" },
   ]
 
   return (
@@ -62,8 +64,8 @@ export function LogoCarousel() {
         <div 
           ref={scrollRef} 
           className="flex"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => isHoveredRef.current = true}
+          onMouseLeave={() => isHoveredRef.current = false}
         >
           {/* First set of logos */}
           {logos.map((logo, index) => (
