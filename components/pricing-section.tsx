@@ -1,9 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import { Check } from "lucide-react"
+import { DemoBookingDialog } from "@/components/demo-booking-dialog"
 
 export function PricingSection() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
   return (
+    <>
     <section className="py-12 sm:py-16 lg:py-20 bg-[#f8f5f5]">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Title */}
@@ -18,8 +23,8 @@ export function PricingSection() {
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {/* Card 1: Free Forever */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8">
+          {/* Card 1: MARS Lift-Off */}
+          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS Lift-Off</h3>
             
             {/* Price */}
@@ -37,7 +42,7 @@ export function PricingSection() {
             </p>
 
             {/* Features */}
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-700">• Up to 3 active roles/month</span>
@@ -61,13 +66,16 @@ export function PricingSection() {
             </ul>
 
             {/* Button */}
-            <button className="w-full bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-900 transition-colors duration-200">
-            Contact Us
+            <button 
+              onClick={() => setIsDialogOpen(true)}
+              className="w-full bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-900 transition-all duration-200 hover:scale-105 hover:shadow-lg mt-auto"
+            >
+              Contact Us
             </button>
           </div>
 
-          {/* Card 2: For Work */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8">
+          {/* Card 2: MARS VELOCITY */}
+          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS VELOCITY</h3>
             
             {/* Price */}
@@ -85,7 +93,7 @@ export function PricingSection() {
             </p>
 
             {/* Features */}
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#7cb342]" />
                 <span className="text-gray-700">Up to 10 active roles/month</span>
@@ -110,7 +118,8 @@ export function PricingSection() {
 
             {/* Button */}
             <button 
-              className="w-full text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg"
+              onClick={() => setIsDialogOpen(true)}
+              className="w-full text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg mt-auto"
               style={{ backgroundColor: "#7cb342" }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#689F38"}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#7cb342"}
@@ -119,8 +128,8 @@ export function PricingSection() {
             </button>
           </div>
 
-          {/* Card 3: For Teams */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8">
+          {/* Card 3: MARS INFINITY */}
+          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS INFINITY</h3>
             
             {/* Price */}
@@ -138,7 +147,7 @@ export function PricingSection() {
             </p>
 
             {/* Features */}
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#B3262F" }} />
                 <span className="text-gray-700">Unlimited sourcing across functions</span>
@@ -167,17 +176,20 @@ export function PricingSection() {
 
             {/* Button */}
             <button 
-              className="w-full text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg"
+              onClick={() => setIsDialogOpen(true)}
+              className="w-full text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg mt-auto"
               style={{ backgroundColor: "#B3262F" }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#9A1F28"}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#B3262F"}
             >
-             Contact Us
+              Contact Us
             </button>
           </div>
         </div>
       </div>
     </section>
+    <DemoBookingDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
+    </>
   )
 }
 
