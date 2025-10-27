@@ -1,6 +1,6 @@
 export function TalentSpotlightSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Main Heading */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 sm:mb-16 leading-tight" style={{ color: "#B3262F" }}>

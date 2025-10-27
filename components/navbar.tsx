@@ -15,19 +15,20 @@ export function Navbar() {
     <>
     <nav className="w-full bg-gradient-to-br from-[#f5f0eb] via-[#ede8f0] to-[#e8e5f5] border-b border-gray-200/50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-        <div className="flex items-center gap-[60px]">
+        <div className="flex items-center gap-4 lg:gap-[60px]">
         <Link href="/" className="flex items-center group">
           <img
             src="/images/mars-logo.png"
             alt="MARS Solutions Group"
             width={170}
             height={68}
-            className="h-auto w-[170px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
+            className="h-auto w-[120px] sm:w-[150px] lg:w-[170px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
           />
         </Link>
 
           <div className="hidden items-center gap-8 lg:flex">
-            <div
+            {/* About dropdown - hidden but kept for future use */}
+            {/* <div
               className="relative"
               onMouseEnter={() => setOpenDropdown('about')}
               onMouseLeave={() => setOpenDropdown(null)}
@@ -42,16 +43,13 @@ export function Navbar() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <div className="bg-white rounded-md shadow-lg py-2">
-                    <Link href="https://marssg.com/services/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Services
-                    </Link>
                     <Link href="https://marssg.com/diversity-mars/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
                       Diversity
                     </Link>
                   </div>
                 </div>
               )}
-            </div>
+            </div> */}
 
             <div
               className="relative"
@@ -69,19 +67,22 @@ export function Navbar() {
                 >
                   <div className="bg-white rounded-md shadow-lg py-2">
                     <Link href="https://marssg.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Mars Solutions Group
+                      MARS SOLUTIONS GROUP
+                    </Link>
+                    <Link href="https://marssg.com/staffing-2/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
+                      MARS STAFFING
                     </Link>
                     <Link href="https://getreturnship.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Mars Returnship
+                      MARS RETURNSHIP
                     </Link>
                     <Link href="https://giveovation.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Ovation
+                      OVATION
                     </Link>
                     <Link href="https://www.marssg-healthcare.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Mars Healthcare
+                      MARS HEALTHCARE
                     </Link>
                     <Link href="https://marsorbit.us/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Mars Orbit
+                      MARS ORBIT
                     </Link>
                   </div>
                 </div>
@@ -151,21 +152,22 @@ export function Navbar() {
 
       {isMenuOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg">
-          <div className="px-6 py-6 space-y-4">
-            <div className="space-y-2">
+          <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4">
+            {/* About section - hidden but kept for future use */}
+            {/* <div className="space-y-2">
               <div className="text-base font-bold text-gray-800 py-2">About</div>
-              <Link href="https://marssg.com/services/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                Services
-              </Link>
               <Link href="https://marssg.com/diversity-mars/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
                 Diversity
               </Link>
-            </div>
+            </div> */}
 
             <div className="space-y-2">
               <div className="text-base font-bold text-gray-800 py-2">SOLUTIONS</div>
               <Link href="https://marssg.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
                 MARSSG
+              </Link>
+              <Link href="https://marssg.com/staffing-2/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                MARS STAFFING
               </Link>
               <Link href="https://getreturnship.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
                 MARS RETURNSHIP

@@ -9,7 +9,7 @@ export function TestimonialSection() {
 
   return (
     <>
-    <section className="relative w-full overflow-hidden py-20">
+    <section className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-20">
       {/* Background Image */}
       <div className="absolute inset-0 h-[600px]">
         <img
@@ -20,13 +20,13 @@ export function TestimonialSection() {
       </div>
 
       {/* Content Card - Positioned on Left */}
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-12 flex items-center py-20 -mt-[120px] sm:mt-0">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center py-20 -mt-[80px] sm:-mt-[100px] md:mt-0">
         <div
-          className="bg-white rounded-3xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B3262F]/10"
-          style={{ maxWidth: "calc(42rem - 30px)", padding: "calc(48px - 15px)", marginLeft: "10px" }}
+          className="bg-white rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B3262F]/10 mx-2 sm:mx-5"
+          style={{ maxWidth: "calc(42rem - 30px)", padding: "calc(24px - 10px)" }}
         >
           {/* Heading */}
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
           Empower Your Talent Acquisition 
             <br />
             Team with the <span className="font-bold">World 
@@ -35,7 +35,7 @@ export function TestimonialSection() {
           </h2>
 
           {/* Body Text */}
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
           TalentFlex helps your recruiters do what they do bes; build relationships, engage talent, and close offers while we take care of 
           sourcing.
           </p>

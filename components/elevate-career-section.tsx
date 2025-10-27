@@ -1,6 +1,6 @@
 export function ElevateCareerSection() {
   return (
-    <section className="py-20" style={{ backgroundColor: "#f8f5f5" }}>
+    <section className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: "#f8f5f5" }}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column - Text Content */}

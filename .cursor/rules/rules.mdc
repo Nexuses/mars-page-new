@@ -1,3 +1,696 @@
 ---
 alwaysApply: true
 ---
+
+# MARS TalentFlex - Comprehensive Design System
+
+## Project Overview
+MARS TalentFlex is a modern talent acquisition platform built with Next.js 14+ that helps employers find real talent faster by cutting through AI-generated clutter. The platform combines technology and human insight to deliver verified, ranked candidates.
+
+## Design Philosophy
+- **Professional & Corporate**: Maintain a professional tone throughout
+- **Modern & Clean**: Use clean layouts with ample white space
+- **Brand-Consistent**: Follow MARS brand guidelines strictly
+- **User-Focused**: Prioritize usability and clear information hierarchy
+- **Performance-First**: Optimize for speed and responsiveness
+
+---
+
+## Color System
+
+### Primary Brand Colors
+```css
+/* MARS Brand Red - Primary CTA & Accents */
+--mars-red: #B3262F;
+--mars-red-hover: #9A1F28;
+--mars-red-light: rgba(179, 38, 47, 0.1);
+
+/* Success Green - Positive actions & metrics */
+--success-green: #7cb342;
+--success-green-hover: #689F38;
+
+/* Background Gradients */
+--gradient-bg: linear-gradient(to bottom right, #f5f0eb, #ede8f0, #e8e5f5);
+--soft-bg: #f8f5f5;
+```
+
+### Neutral Colors
+```css
+/* Text Colors */
+--text-primary: #1f2937 (gray-900);
+--text-secondary: #6b7280 (gray-600);
+--text-tertiary: #9ca3af (gray-400);
+
+/* UI Colors */
+--background-white: #ffffff;
+--background-light: #f8f5f5;
+--border-color: #e5e7eb (gray-200);
+--shadow: rgba(0, 0, 0, 0.1);
+```
+
+### Usage Guidelines
+- **Primary Red (#B3262F)**: CTAs, links, hover states, accent elements
+- **Success Green (#7cb342)**: Positive metrics, apply buttons, success states
+- **Gradients**: Section backgrounds for visual interest
+- **Soft Backgrounds**: Light backgrounds (#f8f5f5) for content sections
+
+---
+
+## Typography System
+
+### Font Stack
+```css
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+
+### Type Scale
+```css
+/* Headings */
+h1: 3.5rem - 4rem (56px - 64px)
+  - Font weight: 900 (black)
+  - Line height: 1.05
+  - Usage: Hero headlines
+
+h2: 2.5rem - 4rem (40px - 64px)
+  - Font weight: 800 (extra bold)
+  - Line height: 1.2
+  - Usage: Section titles
+
+h3: 1.875rem (30px)
+  - Font weight: 700 (bold)
+  - Usage: Subsection titles
+
+/* Body Text */
+p: 1rem (16px)
+  - Line height: 1.75
+  - Font weight: 400 (regular)
+  - Usage: Body content, descriptions
+
+/* UI Elements */
+Button text: 1rem (16px)
+  - Font weight: 700 (bold) to 900 (black)
+  - Usage: CTA buttons, links
+```
+
+### Text Treatments
+- **Bold Emphasis**: Use `font-bold` for emphasis on key words
+- **Color Emphasis**: Use brand red for important keywords
+- **Line Height**: Use `leading-relaxed` (1.75) for readability
+- **Letter Spacing**: Use `tracking-tight` for large headings
+
+---
+
+## Spacing System
+
+### Consistent Spacing Scale
+```css
+/* Tailwind spacing scale */
+--space-1: 0.25rem (4px)
+--space-2: 0.5rem (8px)
+--space-3: 0.75rem (12px)
+--space-4: 1rem (16px)
+--space-6: 1.5rem (24px)
+--space-8: 2rem (32px)
+--space-12: 3rem (48px)
+--space-16: 4rem (64px)
+--space-20: 5rem (80px)
+```
+
+### Section Spacing
+```css
+/* Vertical rhythm */
+Section padding: py-20 (5rem = 80px)
+Container padding: px-6 lg:px-12
+Content gaps: gap-4 to gap-16
+Max width: max-w-7xl (1280px)
+```
+
+### Component Internal Spacing
+- Cards: `p-4` or `p-6`
+- Buttons: `px-8 py-4`
+- Form inputs: `p-3` or `p-4`
+- Lists: `space-y-2` to `space-y-4`
+
+---
+
+## Component Design Patterns
+
+### 1. Hero Section Pattern
+```typescript
+// Structure: Split layout with left content, right image
+<div className="flex flex-col lg:flex-row">
+  {/* Left: Content */}
+  <div className="w-full lg:w-[45%]">
+    <h1 className="text-4xl lg:text-[4rem] font-black">
+      <span className="text-gray-900">Primary text</span>
+      <span className="text-[#B3262F]">Brand accent</span>
+    </h1>
+    <p className="text-lg leading-relaxed">
+      Descriptive content
+    </p>
+    <Button style={{ backgroundColor: "#B3262F" }}>
+      CTA Text
+    </Button>
+  </div>
+  
+  {/* Right: Image */}
+  <div className="w-full lg:w-[55%]">
+    <img src="..." className="drop-shadow-2xl" />
+  </div>
+</div>
+```
+
+**Key Features:**
+- Split 45/55 layout on desktop
+- Bold typography with brand color accents
+- Clear CTA with hover effects
+- Responsive stacking on mobile
+
+### 2. Section Header Pattern
+```typescript
+<h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
+  <span className="font-normal">Prefix text</span>
+  <span className="font-bold text-[#B3262F]">Key phrase</span>
+  <span className="font-normal">Suffix text</span>
+</h2>
+```
+
+**Guidelines:**
+- Center-aligned for visual balance
+- Responsive sizing (text-2xl to text-4xl)
+- Mix of font weights for hierarchy
+- Use brand color for emphasis
+
+### 3. CTA Button Pattern
+```typescript
+<Button
+  className="px-8 py-4 text-base font-extrabold text-white transition-all duration-200 hover:shadow-xl hover:scale-105 rounded-md uppercase"
+  style={{ backgroundColor: "#B3262F" }}
+  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#9A1F28"}
+  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#B3262F"}
+>
+  Button Text
+</Button>
+```
+
+**Interactions:**
+- Hover scale: `scale-105`
+- Shadow enhancement on hover
+- Color darkening on hover
+- Smooth 200ms transitions
+
+### 4. Card Component Pattern
+```typescript
+<div className="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B3262F]/10">
+  {/* Card content */}
+</div>
+```
+
+**Features:**
+- White background with shadow
+- Rounded corners (rounded-lg)
+- Hover elevation effect
+- Smooth transitions
+
+### 5. Background Gradient Pattern
+```typescript
+// Section backgrounds
+<div className="bg-gradient-to-br from-[#f5f0eb] via-[#ede8f0] to-[#e8e5f5]">
+  {/* Content */}
+</div>
+
+// Light background
+<div style={{ backgroundColor: "#f8f5f5" }}>
+  {/* Content */}
+</div>
+```
+
+### 6. Logo Implementation
+```typescript
+<Link href="/" className="flex items-center group">
+  <img
+    src="/images/mars-logo.png"
+    alt="MARS Solutions Group"
+    width={170}
+    height={68}
+    className="h-auto w-[170px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
+  />
+</Link>
+```
+
+**Footer Logo:** Use 180x72 (10px larger)
+
+---
+
+## Navigation Design
+
+### Navbar Structure
+```typescript
+<nav className="w-full bg-gradient-to-br from-[#f5f0eb] via-[#ede8f0] to-[#e8e5f5] border-b border-gray-200/50">
+  {/* Logo + Menu items */}
+</nav>
+```
+
+**Features:**
+- Same gradient as hero section
+- Dropdown menus with hover states
+- Mobile hamburger menu
+- Logo with hover effects
+- Links with underline animation on hover
+
+### Dropdown Menus
+```typescript
+<div className="relative" onMouseEnter={() => setOpen('menu')} onMouseLeave={() => setOpen(null)}>
+  <button className="flex items-center gap-1 text-base font-bold text-gray-800 hover:text-[#B3262F]">
+    Menu <ChevronDown />
+  </button>
+  {open && (
+    <div className="absolute top-full w-48 bg-white rounded-md shadow-lg py-2">
+      {/* Menu items */}
+    </div>
+  )}
+</div>
+```
+
+### Navigation Links
+- Standard link: Gray-800 text, hover to brand red
+- Underline animation: `after:absolute after:bottom-[-4px] after:h-[2px] after:w-0 hover:after:w-full after:bg-[#B3262F]`
+- Active state: Brand red color
+- External links: `target="_blank" rel="noopener noreferrer"`
+
+---
+
+## Layout Patterns
+
+### Full-Width Container
+```typescript
+<div className="w-full max-w-7xl mx-auto px-6 lg:px-12">
+  {/* Content */}
+</div>
+```
+
+### Section Spacing
+```typescript
+<section className="py-20">
+  <div className="container mx-auto max-w-4xl px-6 lg:px-12">
+    {/* Section content */}
+  </div>
+</section>
+```
+
+### Split Layout (50/50)
+```typescript
+<div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+  <div className="flex-1">
+    {/* Left content */}
+  </div>
+  <div className="flex-1">
+    {/* Right content */}
+  </div>
+</div>
+```
+
+### Grid Layouts
+```typescript
+{/* 2-column grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+{/* 3-column grid */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+```
+
+---
+
+## Interactive Elements
+
+### Hover Effects
+```typescript
+// Scale on hover
+className="transition-all duration-300 hover:scale-105"
+
+// Brightness increase
+className="hover:brightness-110"
+
+// Shadow enhancement
+className="hover:shadow-xl hover:shadow-[#B3262F]/10"
+
+// Combined effect (for images/logos)
+className="transition-all duration-300 hover:scale-105 hover:brightness-110 hover:drop-shadow-md"
+```
+
+### Button States
+```typescript
+// Primary button
+style={{ backgroundColor: "#B3262F" }}
+onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#9A1F28"}
+onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#B3262F"}
+
+// Success button
+style={{ backgroundColor: "#7cb342" }}
+onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#689F38"}
+onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#7cb342"
+```
+
+### Transition Timing
+- Fast: `duration-150` (150ms) - for icons
+- Standard: `duration-200` (200ms) - for buttons
+- Smooth: `duration-300` (300ms) - for cards, images
+
+---
+
+## Responsive Design
+
+### Breakpoints
+```css
+/* Tailwind breakpoints */
+sm: 640px   /* Small devices */
+md: 768px   /* Tablets */
+lg: 1024px  /* Desktop */
+xl: 1280px  /* Large desktop */
+2xl: 1536px /* Extra large */
+```
+
+### Responsive Patterns
+```typescript
+// Text sizing
+className="text-2xl sm:text-3xl lg:text-4xl"
+
+// Layout change
+className="flex-col lg:flex-row"
+
+// Spacing adjustment
+className="px-6 lg:px-12"
+
+// Hidden at breakpoint
+className="hidden lg:flex"
+```
+
+### Mobile-First Approach
+- Design for mobile first (320px+)
+- Use `lg:` prefixes for desktop layouts
+- Stack elements vertically by default
+- Hide complex elements on mobile, show simplified versions
+
+---
+
+## Image Handling
+
+### Image Optimization
+```typescript
+// Standard image
+<img
+  src="/images/image.png"
+  alt="Descriptive alt text"
+  className="w-full h-auto object-contain"
+/>
+
+// Responsive sizing
+<img
+  src="/images/image.png"
+  width={500}
+  height={300}
+  className="w-full lg:w-[500px] h-auto"
+/>
+
+// With effects
+<img
+  src="/images/image.png"
+  className="drop-shadow-2xl hover:scale-105 transition-all duration-300"
+/>
+```
+
+### Background Images
+```typescript
+<section className="relative overflow-hidden">
+  <img
+    src="/images/background.png"
+    className="absolute inset-0 w-full h-[500px] object-cover"
+  />
+  <div className="relative z-10">
+    {/* Overlay content */}
+  </div>
+</section>
+```
+
+---
+
+## Forms & Inputs
+
+### Input Styling
+```typescript
+<input
+  type="text"
+  className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#B3262F] focus:border-transparent"
+/>
+```
+
+### Form Layout
+```typescript
+<form className="space-y-4">
+  {/* Form fields */}
+</form>
+```
+
+### Validation States
+- Success: Green border (#7cb342)
+- Error: Red border with error message
+- Loading: Disabled state with spinner
+
+---
+
+## Dialog/Modal Pattern
+
+### Structure
+```typescript
+<Dialog open={isOpen} onOpenChange={setIsOpen}>
+  <DialogContent>
+    {/* Header */}
+    <DialogHeader>
+      <DialogTitle>Title</DialogTitle>
+      <DialogDescription>Description</DialogDescription>
+    </DialogHeader>
+    
+    {/* Body content */}
+    
+    {/* Footer actions */}
+  </DialogContent>
+</Dialog>
+```
+
+---
+
+## Animation & Transitions
+
+### Scroll Animations
+```css
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+```
+
+### Reveal Animations
+- Use `intersection observer` for scroll-triggered animations
+- Fade in from bottom: `opacity-0 translate-y-4`
+- Scale in: `scale-95` to `scale-100`
+
+---
+
+## Accessibility Guidelines
+
+### Semantic HTML
+- Use proper heading hierarchy (h1 → h2 → h3)
+- Use semantic elements (nav, main, section, article, footer)
+- Provide meaningful alt text for images
+
+### Keyboard Navigation
+- All interactive elements focusable
+- Visible focus states
+- Skip to main content link
+
+### Color Contrast
+- Text meets WCAG AA standards (4.5:1 ratio)
+- Links have underline or sufficient color contrast
+- Don't rely solely on color to convey information
+
+### Screen Readers
+- Proper ARIA labels
+- Descriptive link text
+- Form label associations
+
+---
+
+## Performance Best Practices
+
+### Image Optimization
+- Use Next.js Image component for optimization
+- Compress images before upload
+- Use appropriate formats (WebP when possible)
+- Set proper width/height to prevent layout shift
+
+### Code Optimization
+- Lazy load below-the-fold content
+- Use React.memo() for expensive components
+- Minimize bundle size
+- Implement proper caching
+
+### Loading States
+- Show loading spinners for async operations
+- Implement skeleton loaders
+- Provide feedback on user actions
+
+---
+
+## Content Guidelines
+
+### Writing Style
+- **Tone**: Professional, confident, helpful
+- **Voice**: Direct and clear
+- **Length**: Keep paragraphs short (2-3 sentences)
+- **Headlines**: Use action words, be specific
+
+### Messaging Framework
+```typescript
+// Problem statement
+"Cut through the AI noise"
+
+// Solution
+"Find real talent, faster"
+
+// Value proposition
+"MARS TalentFlex helps you reclaim your recruiters' time and sharpen your hiring edge"
+
+// Social proof
+"Trusted by Fortune 500 companies"
+```
+
+---
+
+## Component Architecture
+
+### Page Structure
+```typescript
+// app/page.tsx
+<main className="min-h-screen">
+  <Navbar />
+  <HeroSection />
+  <AboutSection />
+  <VideoSection />
+  <LogoCarousel />
+  <JobsShowcaseSection />
+  <TrustedBySection />
+  <ElevateCareerSection />
+  <TalentSpotlightSection />
+  <MarketingBannerSection />
+  <TestimonialSection />
+  <SplitLayoutSection />
+  <CTASection />
+  <Footer />
+</main>
+```
+
+### Component Organization
+```
+components/
+├── ui/              # Reusable UI components (shadcn/ui)
+├── navbar.tsx       # Navigation
+├── hero-section.tsx # Landing hero
+├── about-section.tsx
+├── cta-section.tsx  # Call-to-action
+├── footer.tsx       # Site footer
+└── *.tsx            # Feature sections
+```
+
+---
+
+## Code Conventions
+
+### Naming
+- Components: PascalCase (e.g., `HeroSection.tsx`)
+- Files: kebab-case or PascalCase
+- Variables: camelCase
+- Constants: UPPER_SNAKE_CASE
+
+### Structure
+```typescript
+"use client" // For client components
+
+import { ... } from "..."
+import { useState } from "react"
+
+interface ComponentProps {
+  // Props interface
+}
+
+export function ComponentName({ prop1, prop2 }: ComponentProps) {
+  // State
+  const [state, setState] = useState<Type>(initialValue)
+  
+  // Handlers
+  const handleEvent = useCallback(() => {
+    // Logic
+  }, [dependencies])
+  
+  // Effects
+  useEffect(() => {
+    // Side effects
+    return () => {
+      // Cleanup
+    }
+  }, [dependencies])
+  
+  return (
+    <div className="tailwind-classes">
+      {/* JSX */}
+    </div>
+  )
+}
+```
+
+---
+
+## Implementation Checklist
+
+When creating new components, ensure:
+- [ ] Mobile-first responsive design
+- [ ] Proper TypeScript typing
+- [ ] Accessibility (ARIA, semantic HTML)
+- [ ] Brand colors and typography
+- [ ] Hover states and transitions
+- [ ] Loading states where applicable
+- [ ] Error handling
+- [ ] Performance optimization
+- [ ] Code comments for complex logic
+- [ ] Follows existing patterns
+
+---
+
+## Resources
+
+### Brand Assets
+- Logo: `/images/mars-logo.png` (Navbar: 170x68, Footer: 180x72)
+- Images: `/images/candidate-cards.png`, `/images/marketing-woman.png`
+- PDF: `/MARS Talent Flex_compressed.pdf`
+
+### External Links
+- Main Site: https://marssg.com/
+- Staffing: https://marssg.com/staffing-2/
+- Returnship: https://getreturnship.com/
+- Ovation: https://giveovation.com/
+- Healthcare: https://www.marssg-healthcare.com/
+- Orbit: https://marsorbit.us/
+
+### Key Files
+- Design tokens: `app/globals.css`
+- Main layout: `app/layout.tsx`
+- Home page: `app/page.tsx`
+- Components: `components/*.tsx`
+- API routes: `app/api/*/route.ts`
+
+---
+
+*This design system ensures consistency, maintainability, and scalability across the MARS TalentFlex platform.*

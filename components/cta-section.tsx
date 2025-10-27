@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button"
 
 export function CTASection() {
   return (
-    <section className="relative w-full overflow-hidden py-20">
+    <section className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-20">
       {/* Background Image */}
       <img
         src="/images/cta-background.png"
         alt="Professional team meeting"
-        className="absolute inset-0 w-full h-[500px] object-cover"
+        className="absolute inset-0 w-full h-[400px] sm:h-[500px] object-cover"
       />
 
       {/* Content Container */}
-      <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-end px-6 lg:px-12 py-20">
+      <div className="relative z-10 mx-auto flex max-w-7xl items-center justify-end px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
         <div className="max-w-2xl text-right text-white">
           <h2 className="mb-8 text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             <span className="font-bold">Rise Above the 

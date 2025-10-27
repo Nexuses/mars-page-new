@@ -5,17 +5,17 @@ import { Facebook, Twitter, Linkedin, Instagram, Youtube } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-white py-12 border-t border-gray-200">
+    <footer className="bg-white py-8 sm:py-12 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-6 sm:gap-10">
           <div className="flex flex-col items-center text-center gap-4">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center group">
               <img
-                src="/images/MARS-1.webp"
+                src="/images/mars-logo.png"
                 alt="MARS Solutions Group"
-                width={160}
-                height={64}
-                className="h-auto w-[160px]"
+                width={180}
+                height={72}
+                className="h-auto w-[140px] sm:w-[160px] lg:w-[180px] transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 group-hover:drop-shadow-md"
               />
             </Link>
             <p className="text-gray-600 text-sm font-medium">People. Process. Technology.</p>

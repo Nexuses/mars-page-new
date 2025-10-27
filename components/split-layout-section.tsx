@@ -48,7 +48,7 @@ export function SplitLayoutSection() {
     }
   }
   return (
-    <section id="contact-form" className="py-20 bg-white">
+    <section id="contact-form" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left Side - Form */}

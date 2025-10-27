@@ -40,12 +40,12 @@ export function HeroSection() {
           </div>
 
           {/* Right Column - Image touching edge */}
-          <div className="w-full lg:w-[55%] relative flex items-center justify-end px-6 py-8 lg:p-0">
+          <div className="w-full lg:w-[55%] relative flex items-center justify-end px-4 sm:px-6 py-6 sm:py-8 lg:p-0">
             <div className="relative w-full lg:w-[120%] lg:translate-x-[10%]">
               <img
                 src="/images/candidate-cards.png"
                 alt="Candidate profile cards showing diverse returners"
-                className="w-full h-auto object-contain lg:object-right scale-110 lg:scale-125 drop-shadow-2xl"
+                className="w-full h-auto object-contain lg:object-right scale-100 sm:scale-105 lg:scale-125 drop-shadow-2xl"
               />
             </div>
           </div>

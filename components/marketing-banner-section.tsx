@@ -4,7 +4,7 @@ import { Star } from "lucide-react"
 
 export function MarketingBannerSection() {
   return (
-    <section className="py-20" style={{ backgroundColor: "#f8f5f5" }}>
+    <section className="py-12 sm:py-16 lg:py-20" style={{ backgroundColor: "#f8f5f5" }}>
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
           {/* Left Content */}

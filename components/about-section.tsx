@@ -1,6 +1,6 @@
 export function AboutSection() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto max-w-4xl px-6 lg:px-12">
         <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
           <span className="text-[#B83A3A] font-normal">The Ideal Partner for </span>

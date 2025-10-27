@@ -54,7 +54,7 @@ export function LogoCarousel() {
   ]
 
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="pt-8 sm:pt-12 lg:pt-16 pb-0 bg-white overflow-hidden">
       <div className="relative">
         {/* Gradient overlays for fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
