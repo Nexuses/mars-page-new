@@ -93,10 +93,6 @@ export function Navbar() {
               Jobs
             </Link>
 
-            <Link href="https://marssg.com/staffing-2/" target="_blank" className="text-base font-bold text-gray-800 transition-colors duration-200 hover:text-[#B3262F] relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#B3262F] after:transition-all after:duration-300 hover:after:w-full">
-              Staffing
-            </Link>
-
             <div
               className="relative"
               onMouseEnter={() => setOpenDropdown('news')}
@@ -185,10 +181,6 @@ export function Navbar() {
 
             <Link href="https://marssg.com/jobs/" target="_blank" className="block text-base font-bold text-gray-800 py-3 hover:text-[#B3262F]" onClick={() => setIsMenuOpen(false)}>
               Jobs
-            </Link>
-
-            <Link href="https://marssg.com/staffing-2/" target="_blank" className="block text-base font-bold text-gray-800 py-3 hover:text-[#B3262F]" onClick={() => setIsMenuOpen(false)}>
-              Staffing
             </Link>
 
             <div className="space-y-2">

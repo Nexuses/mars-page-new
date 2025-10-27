@@ -37,7 +37,7 @@ export function TestimonialSection() {
 
           {/* Body Text */}
           <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-          TalentFlex helps your recruiters do what they do bes; build relationships, engage talent, and close offers while we take care of 
+          TalentFlex helps your recruiters do what they do best build relationships, engage talent, and close offers while we take care of 
           sourcing.
           </p>
 

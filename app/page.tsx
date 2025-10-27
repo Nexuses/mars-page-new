@@ -7,6 +7,7 @@ import { VideoSection } from "@/components/video-section"
 import { TrustedBySection } from "@/components/trusted-by-section"
 import { ElevateCareerSection } from "@/components/elevate-career-section"
 import { TalentSpotlightSection } from "@/components/talent-spotlight-section"
+import { PricingSection } from "@/components/pricing-section"
 import { MarketingBannerSection } from "@/components/marketing-banner-section"
 import { TestimonialSection } from "@/components/testimonial-section"
 import { SplitLayoutSection } from "@/components/split-layout-section"
@@ -25,6 +26,7 @@ export default function Home() {
       <TrustedBySection />
       <ElevateCareerSection />
       <TalentSpotlightSection />
+      <PricingSection />
       <MarketingBannerSection />
       <TestimonialSection />
       <SplitLayoutSection />
