@@ -25,7 +25,12 @@ export function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: MARS Lift-Off */}
           <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS Lift-Off</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS LIFT-OFF</h3>
+            
+            {/* Card Icon */}
+            <div className="flex justify-center mb-6">
+              <img src="/cards-icons/1.png" alt="MARS Lift-Off Icon" className="w-16 h-16 object-contain" />
+            </div>
             
             {/* Price */}
             <div className="text-center mb-6">
@@ -45,7 +50,7 @@ export function PricingSection() {
             <ul className="space-y-3 mb-8 flex-grow">
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">• Up to 3 active roles/month</span>
+                <span className="text-gray-700"> Up to 3 active roles/month</span>
               </li>
               <li className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-gray-700 flex-shrink-0 mt-0.5" />
@@ -76,7 +81,12 @@ export function PricingSection() {
 
           {/* Card 2: MARS VELOCITY */}
           <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS VELOCITY</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS VELOCITY</h3>
+            
+            {/* Card Icon */}
+            <div className="flex justify-center mb-6">
+              <img src="/cards-icons/2.png" alt="MARS Velocity Icon" className="w-16 h-16 object-contain" />
+            </div>
             
             {/* Price */}
             <div className="text-center mb-6">
@@ -130,7 +140,12 @@ export function PricingSection() {
 
           {/* Card 3: MARS INFINITY */}
           <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-6">MARS INFINITY</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS INFINITY</h3>
+            
+            {/* Card Icon */}
+            <div className="flex justify-center mb-6">
+              <img src="/cards-icons/3.png" alt="MARS Infinity Icon" className="w-16 h-16 object-contain" />
+            </div>
             
             {/* Price */}
             <div className="text-center mb-6">
