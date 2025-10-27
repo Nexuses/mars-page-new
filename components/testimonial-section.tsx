@@ -9,22 +9,24 @@ export function TestimonialSection() {
 
   return (
     <>
-    <section className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-20">
-      {/* Background Image */}
-      <div className="absolute inset-0 h-[600px]">
+    <section className="relative w-full" style={{ maxHeight: '600px', overflow: 'hidden' }}>
+      {/* Background Image Container */}
+      <div className="relative w-full h-full">
         <img
           src="/images/testimonial-bg.png"
           alt="Diverse professionals in office"
           className="w-full h-full object-cover"
+          style={{ objectPosition: 'top' }}
         />
       </div>
 
-      {/* Content Card - Positioned on Left */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center py-20 -mt-[80px] sm:-mt-[100px] md:mt-0">
-        <div
-          className="bg-white rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B3262F]/10 mx-2 sm:mx-5"
-          style={{ maxWidth: "calc(42rem - 30px)", padding: "calc(24px - 10px)" }}
-        >
+      {/* Content Card - Positioned Absolutely Over Background */}
+      <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
+          <div
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B3262F]/10 w-full max-w-[42rem]"
+            style={{ padding: "calc(24px - 10px)" }}
+          >
           {/* Heading */}
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
           Empower Your Talent Acquisition 
@@ -51,6 +53,7 @@ export function TestimonialSection() {
             Schedule a Demo
           </Button>
         </div>
+      </div>
       </div>
     </section>
     <DemoBookingDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />

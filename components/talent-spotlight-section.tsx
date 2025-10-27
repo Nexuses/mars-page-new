@@ -8,16 +8,14 @@ export function TalentSpotlightSection() {
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left Side - Circular Image */}
+          {/* Left Side - Image */}
           <div className="flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] aspect-square">
-              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-dashed border-blue-400 bg-blue-50">
-                <img
-                  src="/images/talent.png"
-                  alt="Healthcare professional"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-[500px] group">
+              <img
+                src="/images/talent.png"
+                alt="Healthcare professional"
+                className="w-full h-auto object-contain rounded-lg transition-transform duration-500 group-hover:scale-110"
+              />
             </div>
           </div>
 
