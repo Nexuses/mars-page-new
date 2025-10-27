@@ -66,9 +66,7 @@ export function Navbar() {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <div className="bg-white rounded-md shadow-lg py-2">
-                    <Link href="https://marssg.com/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      MARS SOLUTIONS GROUP
-                    </Link>
+                   
                     <Link href="https://marssg.com/staffing-2/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
                       MARS STAFFING
                     </Link>
