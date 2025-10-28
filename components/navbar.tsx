@@ -27,29 +27,9 @@ export function Navbar() {
         </Link>
 
           <div className="hidden items-center gap-8 lg:flex">
-            {/* About dropdown - hidden but kept for future use */}
-            {/* <div
-              className="relative"
-              onMouseEnter={() => setOpenDropdown('about')}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <button className="flex items-center gap-1 text-base font-bold text-gray-800 transition-colors duration-200 hover:text-[#B3262F] py-2">
-                About <ChevronDown size={16} />
-              </button>
-              {openDropdown === 'about' && (
-                <div
-                  className="absolute left-0 top-full pt-2 w-48 z-50"
-                  onMouseEnter={() => setOpenDropdown('about')}
-                  onMouseLeave={() => setOpenDropdown(null)}
-                >
-                  <div className="bg-white rounded-md shadow-lg py-2">
-                    <Link href="https://marssg.com/diversity-mars/" target="_blank" className="block px-4 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100 hover:text-[#B3262F]">
-                      Diversity
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div> */}
+            <Link href="https://marssg.com/diversity-mars/" target="_blank" className="text-base font-bold text-gray-800 transition-colors duration-200 hover:text-[#B3262F] relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-[#B3262F] after:transition-all after:duration-300 hover:after:w-full">
+              About
+            </Link>
 
             <div
               className="relative"
@@ -147,34 +127,40 @@ export function Navbar() {
       {isMenuOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg">
           <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4">
-            {/* About section - hidden but kept for future use */}
-            {/* <div className="space-y-2">
-              <div className="text-base font-bold text-gray-800 py-2">About</div>
-              <Link href="https://marssg.com/diversity-mars/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                Diversity
-              </Link>
-            </div> */}
+            <Link href="https://marssg.com/diversity-mars/" target="_blank" className="block text-base font-bold text-gray-800 py-3 hover:text-[#B3262F]" onClick={() => setIsMenuOpen(false)}>
+              About
+            </Link>
 
             <div className="space-y-2">
-              <div className="text-base font-bold text-gray-800 py-2">SOLUTIONS</div>
-              <Link href="https://marssg.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                MARSSG
-              </Link>
-              <Link href="https://marssg.com/staffing-2/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                MARS STAFFING
-              </Link>
-              <Link href="https://getreturnship.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                MARS RETURNSHIP
-              </Link>
-              <Link href="https://giveovation.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                OVATION
-              </Link>
-              <Link href="https://www.marssg-healthcare.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                MARS HEALTHCARE
-              </Link>
-              <Link href="https://marsorbit.us/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                MARS ORBIT
-              </Link>
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === 'solutions' ? null : 'solutions')}
+                className="flex items-center justify-between w-full text-base font-bold text-gray-800 py-2"
+              >
+                <span>SOLUTIONS</span>
+                <ChevronDown size={16} className={`transition-transform duration-200 ${openDropdown === 'solutions' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === 'solutions' && (
+                <div className="space-y-2">
+                  <Link href="https://marssg.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    MARSSG
+                  </Link>
+                  <Link href="https://marssg.com/staffing-2/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    MARS STAFFING
+                  </Link>
+                  <Link href="https://getreturnship.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    MARS RETURNSHIP
+                  </Link>
+                  <Link href="https://giveovation.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    OVATION
+                  </Link>
+                  <Link href="https://www.marssg-healthcare.com/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    MARS HEALTHCARE
+                  </Link>
+                  <Link href="https://marsorbit.us/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    MARS ORBIT
+                  </Link>
+                </div>
+              )}
             </div>
 
             <Link href="https://marssg.com/jobs/" target="_blank" className="block text-base font-bold text-gray-800 py-3 hover:text-[#B3262F]" onClick={() => setIsMenuOpen(false)}>
@@ -182,13 +168,23 @@ export function Navbar() {
             </Link>
 
             <div className="space-y-2">
-              <div className="text-base font-bold text-gray-800 py-2">News</div>
-              <Link href="https://marssg.com/blog/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                Blog
-              </Link>
-              <Link href="https://marssg.com/events/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
-                Events
-              </Link>
+              <button 
+                onClick={() => setOpenDropdown(openDropdown === 'news' ? null : 'news')}
+                className="flex items-center justify-between w-full text-base font-bold text-gray-800 py-2"
+              >
+                <span>News</span>
+                <ChevronDown size={16} className={`transition-transform duration-200 ${openDropdown === 'news' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === 'news' && (
+                <div className="space-y-2">
+                  <Link href="https://marssg.com/blog/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    Blog
+                  </Link>
+                  <Link href="https://marssg.com/events/" target="_blank" className="block pl-4 text-sm font-semibold text-gray-700 hover:text-[#B3262F] py-2" onClick={() => setIsMenuOpen(false)}>
+                    Events
+                  </Link>
+                </div>
+              )}
             </div>
 
             <Link href="https://marssg.com/referral-bonus/" target="_blank" className="block text-base font-bold text-gray-800 py-3 hover:text-[#B3262F]" onClick={() => setIsMenuOpen(false)}>

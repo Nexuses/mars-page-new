@@ -24,12 +24,12 @@ export function PricingSection() {
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: MARS Lift-Off */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
+          <div className="bg-gray-50 rounded-lg shadow-md border-2 border-transparent hover:border-[#B3262F] transition-colors duration-300 p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS LIFT-OFF</h3>
             
             {/* Card Icon */}
             <div className="flex justify-center mb-6">
-              <img src="/cards-icons/1.png" alt="MARS Lift-Off Icon" className="w-16 h-16 object-contain" />
+              <img src="/cards-icons/1.png" alt="MARS Lift-Off Icon" className="w-24 h-24 sm:w-28 sm:h-28 object-contain" />
             </div>
             
             {/* Price */}
@@ -80,12 +80,12 @@ export function PricingSection() {
           </div>
 
           {/* Card 2: MARS VELOCITY */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
+          <div className="bg-gray-50 rounded-lg shadow-md border-2 border-transparent hover:border-[#B3262F] transition-colors duration-300 p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS VELOCITY</h3>
             
             {/* Card Icon */}
             <div className="flex justify-center mb-6">
-              <img src="/cards-icons/2.png" alt="MARS Velocity Icon" className="w-16 h-16 object-contain" />
+              <img src="/cards-icons/2.png" alt="MARS Velocity Icon" className="w-24 h-24 sm:w-28 sm:h-28 object-contain" />
             </div>
             
             {/* Price */}
@@ -139,12 +139,12 @@ export function PricingSection() {
           </div>
 
           {/* Card 3: MARS INFINITY */}
-          <div className="bg-gray-50 rounded-lg shadow-md p-6 sm:p-8 flex flex-col">
+          <div className="bg-gray-50 rounded-lg shadow-md border-2 border-transparent hover:border-[#B3262F] transition-colors duration-300 p-6 sm:p-8 flex flex-col">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 text-center mb-4">MARS INFINITY</h3>
             
             {/* Card Icon */}
             <div className="flex justify-center mb-6">
-              <img src="/cards-icons/3.png" alt="MARS Infinity Icon" className="w-16 h-16 object-contain" />
+              <img src="/cards-icons/3.png" alt="MARS Infinity Icon" className="w-24 h-24 sm:w-28 sm:h-28 object-contain" />
             </div>
             
             {/* Price */}
