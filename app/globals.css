@@ -156,6 +156,26 @@
   button, .btn {
     font-weight: 700;
   }
+
+  /* Global pointer cursor for interactive elements */
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  /* Heuristic: elements with hover utility classes should show pointer */
+  [class*="hover:scale-"],
+  [class*="hover:shadow"],
+  [class*="hover:underline"],
+  [class*="hover:bg-"],
+  [class*="hover:text-"],
+  [class*="group-hover:"] {
+    cursor: pointer;
+  }
 }
 
 /* Truly continuous infinite scroll - no reset ever */
