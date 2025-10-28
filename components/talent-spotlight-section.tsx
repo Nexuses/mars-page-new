@@ -24,7 +24,7 @@ export function TalentSpotlightSection() {
             {/* Process Steps */}
             <div className="relative">
               {/* Connecting Line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+              <div className="absolute left-6 top-0 bottom-[85px] w-0.5 bg-gray-300"></div>
               
               {/* Chip 1 */}
               <div className="relative flex items-start gap-4 mb-6">

@@ -12,6 +12,24 @@ export const metadata: Metadata = {
   title: 'MARS TalentFlex',
   description: 'MARS TalentFlex - Talent Acquisition Platform',
   generator: 'v0.app',
+  openGraph: {
+    title: 'MARS TalentFlex',
+    description: 'MARS TalentFlex - Talent Acquisition Platform',
+    images: [
+      {
+        url: '/preview-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'MARS TalentFlex',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MARS TalentFlex',
+    description: 'MARS TalentFlex - Talent Acquisition Platform',
+    images: ['/preview-image.png'],
+  },
   icons: {
     icon: [
       { url: '/fevicon.png', sizes: '32x32', type: 'image/png' },
