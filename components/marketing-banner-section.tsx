@@ -35,7 +35,7 @@ export function MarketingBannerSection() {
               />
 
               {/* APPLE Job Card - Top Right */}
-              <div className="absolute top-3 sm:top-6 right-[25px] sm:right-[50px] bg-white rounded-lg shadow-lg p-3 sm:p-4 w-48 sm:w-56 z-20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B3262F]/10">
+              <div className="absolute bottom-[150px] sm:bottom-auto sm:top-6 left-[25px] sm:left-auto sm:right-[50px] bg-white rounded-lg shadow-lg p-3 sm:p-4 w-48 sm:w-56 z-20 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B3262F]/10">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <h3 className="text-lg sm:text-2xl font-bold text-gray-900">APPLE</h3>
@@ -52,7 +52,7 @@ export function MarketingBannerSection() {
               </div>
 
               {/* Candidate Card - Bottom Left (refined to match design) */}
-              <div className="absolute bottom-3 sm:bottom-6 left-2 sm:left-[-120px] lg:left-[-190px] z-20 w-[250px] sm:w-[280px] lg:w-[323px] rounded-[12px] bg-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B3262F]/10" >
+              <div className="absolute bottom-3 sm:bottom-6 left-2 sm:left-[-80px] lg:left-[-150px] z-20 w-[250px] sm:w-[280px] lg:w-[323px] rounded-[12px] bg-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#B3262F]/10" >
                 <div className="p-2 pb-1">
                   {/* Header row */}
                   <div className="flex items-center justify-between">
