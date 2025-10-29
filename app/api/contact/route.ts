@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
              <!-- Header with Logo -->
              <div style="background: linear-gradient(135deg, #f5f0eb 0%, #ede8f0 50%, #e8e5f5 100%); padding: 30px 20px; text-align: center; border-bottom: 3px solid #B3262F;">
                <div style="background-color: transparent; padding: 20px; display: inline-block;">
-                 <img src="${baseUrl}/images/MARS-1.webp" alt="MARS Solutions Group" style="height: 60px; width: auto; max-width: 200px;" />
+                 <img src="cid:marslogo" alt="MARS Solutions Group" style="height: 60px; width: auto; max-width: 200px;" />
                </div>
              </div>
             
@@ -145,6 +145,13 @@ export async function POST(request: NextRequest) {
         
         This email was sent from the MARS Returnship contact form.
       `,
+      attachments: [
+        {
+          filename: 'mars-logo.png',
+          path: 'https://talentflex.marssg.com/images/mars-logo.png',
+          cid: 'marslogo',
+        },
+      ],
     }
 
     // Send email

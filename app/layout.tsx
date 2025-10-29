@@ -9,12 +9,27 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'MARS TalentFlex',
-  description: 'MARS TalentFlex - Talent Acquisition Platform',
-  generator: 'v0.app',
+  title: 'MARS TalentFlex | Streamlined AI-Powered Talent Sourcing',
+  description:
+    "MARS TalentFlex cuts through the AI noise to find real, qualified candidates faster. Our AI-powered sourcing engine delivers verified, ranked talent with efficient, streamlined hiring processes for employers across industries.",
+  keywords: [
+    'Talent acquisition',
+    'AI-powered recruitment',
+    'sourcing engine',
+    'recruitment technology',
+    'hire faster',
+    'candidate shortlisting',
+    'AI talent sourcing',
+    'verified candidates',
+    'recruitment process',
+    'hiring solutions',
+    'workforce efficiency',
+    'recruitment strategy',
+  ],
   openGraph: {
-    title: 'MARS TalentFlex',
-    description: 'MARS TalentFlex - Talent Acquisition Platform',
+    title: 'MARS TalentFlex | Find Real Talent, Faster',
+    description:
+      'Streamline your hiring process with MARS TalentFlex. AI-powered sourcing combined with human expertise to bring top-tier candidates directly to your team.',
     images: [
       {
         url: '/preview-image.png',
@@ -26,8 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MARS TalentFlex',
-    description: 'MARS TalentFlex - Talent Acquisition Platform',
+    title: 'MARS TalentFlex | Streamlined AI-Powered Talent Sourcing',
+    description:
+      'MARS TalentFlex uses a cutting-edge sourcing engine combining AI and human expertise to help employers hire the best talent in days, not weeks.',
     images: ['/preview-image.png'],
   },
   icons: {
