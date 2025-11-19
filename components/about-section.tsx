@@ -12,6 +12,7 @@ export function AboutSection() {
         helps you reclaim your recruiters’ time and sharpen your hiring edge.
         <br />
         <br />
+        
         We streamline sourcing with a <span className="font-bold">3-layer filtration system</span> that blends AI-driven screening, process 
         precision, and human intuition—delivering quality over quantity, every time.
 
