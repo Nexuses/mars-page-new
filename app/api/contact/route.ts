@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { writeContactFormToSheets } from '@/lib/google-sheets'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -156,6 +157,12 @@ export async function POST(request: NextRequest) {
 
     // Send email
     await transporter.sendMail(mailOptions)
+
+    // Write to Google Sheets (non-blocking - don't fail if Sheets fails)
+    writeContactFormToSheets({ name, email, company, positions }).catch((error) => {
+      console.error('Failed to write to Google Sheets:', error)
+      // Continue even if Sheets write fails
+    })
 
     return NextResponse.json(
       { message: 'Email sent successfully' },
