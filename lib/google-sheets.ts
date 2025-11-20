@@ -11,6 +11,8 @@ async function getSheetsClient() {
   try {
     // Option 1: Service Account with full JSON key
     if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+      console.log('[Google Sheets] GOOGLE_SERVICE_ACCOUNT_KEY found, length:', process.env.GOOGLE_SERVICE_ACCOUNT_KEY.length)
+      
       // Remove surrounding quotes if present
       let keyString = process.env.GOOGLE_SERVICE_ACCOUNT_KEY.trim()
       if ((keyString.startsWith("'") && keyString.endsWith("'")) || 
@@ -18,19 +20,40 @@ async function getSheetsClient() {
         keyString = keyString.slice(1, -1)
       }
       
-      console.log('Parsing Google Service Account Key...')
-      const credentials = JSON.parse(keyString)
+      console.log('[Google Sheets] Parsing Google Service Account Key...')
+      let credentials
+      try {
+        credentials = JSON.parse(keyString)
+      } catch (parseError: any) {
+        console.error('[Google Sheets] JSON Parse Error:', parseError.message)
+        console.error('[Google Sheets] First 100 chars of key:', keyString.substring(0, 100))
+        console.error('[Google Sheets] Last 100 chars of key:', keyString.substring(Math.max(0, keyString.length - 100)))
+        
+        // Try to fix common issues with Vercel environment variables
+        // Vercel might convert actual newlines to \n or vice versa
+        try {
+          // If the key has actual newlines, escape them properly
+          const fixedKey = keyString.replace(/\n/g, '\\n').replace(/\r/g, '')
+          credentials = JSON.parse(fixedKey)
+          console.log('[Google Sheets] Successfully parsed after fixing newline escaping')
+        } catch (secondParseError: any) {
+          console.error('[Google Sheets] Second parse attempt also failed:', secondParseError.message)
+          throw new Error(`Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY: ${parseError.message}. Second attempt: ${secondParseError.message}`)
+        }
+      }
       
       if (!credentials.client_email) {
+        console.error('[Google Sheets] Missing client_email in credentials')
         throw new Error('Invalid service account key: missing client_email')
       }
       
-      console.log('Authenticating with service account:', credentials.client_email)
+      console.log('[Google Sheets] Authenticating with service account:', credentials.client_email)
       const auth = new google.auth.GoogleAuth({
         credentials,
         scopes: ['https://www.googleapis.com/auth/spreadsheets'],
       })
       const authClient = await auth.getClient()
+      console.log('[Google Sheets] Authentication successful')
       return google.sheets({ version: 'v4', auth: authClient as any })
     }
 
@@ -84,14 +107,21 @@ async function getSheetsClient() {
       return google.sheets({ version: 'v4', auth: oauth2Client })
     }
 
+    console.error('[Google Sheets] No authentication credentials found')
+    console.error('[Google Sheets] Available env vars:', {
+      GOOGLE_SERVICE_ACCOUNT_KEY: !!process.env.GOOGLE_SERVICE_ACCOUNT_KEY,
+      GOOGLE_SERVICE_ACCOUNT_EMAIL: !!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      GOOGLE_PRIVATE_KEY: !!process.env.GOOGLE_PRIVATE_KEY,
+      GOOGLE_CLIENT_ID: !!process.env.GOOGLE_CLIENT_ID,
+    })
     throw new Error('Google Sheets authentication credentials not found. Please set GOOGLE_SERVICE_ACCOUNT_KEY (full JSON) or GOOGLE_SERVICE_ACCOUNT_EMAIL + GOOGLE_PRIVATE_KEY, or OAuth2 credentials.')
   } catch (error: any) {
-    console.error('Error authenticating with Google Sheets:', error)
+    console.error('[Google Sheets] Error authenticating with Google Sheets:', error)
     if (error.message) {
-      console.error('Error message:', error.message)
+      console.error('[Google Sheets] Error message:', error.message)
     }
     if (error.stack) {
-      console.error('Error stack:', error.stack)
+      console.error('[Google Sheets] Error stack:', error.stack)
     }
     throw error
   }
@@ -175,43 +205,53 @@ export async function writeToGoogleSheets(
   sheetName?: string
 ): Promise<void> {
   try {
-    console.log('Starting Google Sheets write operation...')
-    console.log('Spreadsheet ID:', SPREADSHEET_ID)
-    console.log('Headers:', headers)
-    console.log('Values:', values)
+    console.log('[Google Sheets] ===== Starting Google Sheets write operation =====')
+    console.log('[Google Sheets] Spreadsheet ID:', SPREADSHEET_ID)
+    console.log('[Google Sheets] Headers:', headers)
+    console.log('[Google Sheets] Values:', values)
+    console.log('[Google Sheets] Environment check:', {
+      GOOGLE_SERVICE_ACCOUNT_KEY: !!process.env.GOOGLE_SERVICE_ACCOUNT_KEY,
+      GOOGLE_SERVICE_ACCOUNT_KEY_LENGTH: process.env.GOOGLE_SERVICE_ACCOUNT_KEY?.length || 0,
+    })
     
     const sheets = await getSheetsClient()
     const targetSheet = sheetName || SHEET_NAME
-    console.log('Target sheet:', targetSheet)
+    console.log('[Google Sheets] Target sheet:', targetSheet)
 
     // Check if headers exist
-    console.log('Checking if headers exist...')
+    console.log('[Google Sheets] Checking if headers exist...')
     const headersExist = await checkHeadersExist(sheets, headers, targetSheet)
-    console.log('Headers exist:', headersExist)
+    console.log('[Google Sheets] Headers exist:', headersExist)
 
     // Create headers if they don't exist
     if (!headersExist) {
-      console.log('Creating headers...')
+      console.log('[Google Sheets] Creating headers...')
       await createHeaders(sheets, headers, targetSheet)
     }
 
     // Append the data row
-    console.log('Appending data row...')
+    console.log('[Google Sheets] Appending data row...')
     await appendRow(sheets, values, targetSheet)
-    console.log('Successfully wrote to Google Sheets!')
+    console.log('[Google Sheets] ===== Successfully wrote to Google Sheets! =====')
   } catch (error: any) {
-    console.error('Error writing to Google Sheets:', error)
+    console.error('[Google Sheets] ===== ERROR writing to Google Sheets =====')
+    console.error('[Google Sheets] Error type:', error?.constructor?.name)
+    console.error('[Google Sheets] Error:', error)
     if (error.message) {
-      console.error('Error message:', error.message)
+      console.error('[Google Sheets] Error message:', error.message)
     }
     if (error.response?.data) {
-      console.error('Google API Error:', JSON.stringify(error.response.data, null, 2))
+      console.error('[Google Sheets] Google API Error:', JSON.stringify(error.response.data, null, 2))
     }
     if (error.code) {
-      console.error('Error code:', error.code)
+      console.error('[Google Sheets] Error code:', error.code)
+    }
+    if (error.stack) {
+      console.error('[Google Sheets] Error stack:', error.stack)
     }
     // Don't throw error - we don't want to break the form submission if Sheets fails
-    // Just log it for debugging
+    // Just log it for debugging - but make it very visible in logs
+    console.error('[Google Sheets] ===== END ERROR =====')
   }
 }
 

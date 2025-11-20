@@ -159,8 +159,14 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions)
 
     // Write to Google Sheets (non-blocking - don't fail if Sheets fails)
+    console.log('[Contact API] Attempting to write to Google Sheets...')
     writeContactFormToSheets({ name, email, company, positions }).catch((error) => {
-      console.error('Failed to write to Google Sheets:', error)
+      console.error('[Contact API] Failed to write to Google Sheets:', error)
+      console.error('[Contact API] Error details:', {
+        message: error?.message,
+        code: error?.code,
+        stack: error?.stack,
+      })
       // Continue even if Sheets write fails
     })
 

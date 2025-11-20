@@ -178,8 +178,14 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions)
 
     // Write to Google Sheets (non-blocking - don't fail if Sheets fails)
+    console.log('[Demo Booking API] Attempting to write to Google Sheets...')
     writeDemoBookingToSheets({ company_email, name, position, preferred_date, preferred_time }).catch((error) => {
-      console.error('Failed to write to Google Sheets:', error)
+      console.error('[Demo Booking API] Failed to write to Google Sheets:', error)
+      console.error('[Demo Booking API] Error details:', {
+        message: error?.message,
+        code: error?.code,
+        stack: error?.stack,
+      })
       // Continue even if Sheets write fails
     })
 
