@@ -158,11 +158,13 @@ export async function POST(request: NextRequest) {
     // Send email
     await transporter.sendMail(mailOptions)
 
-    // Write to Google Sheets (non-blocking - don't fail if Sheets fails)
-    writeContactFormToSheets({ name, email, company, positions }).catch((error) => {
-      console.error('Failed to write to Google Sheets:', error)
+    // Write to Google Sheets (await ensures Vercel lambda doesn't exit early)
+    try {
+      await writeContactFormToSheets({ name, email, company, positions })
+    } catch (sheetError) {
+      console.error('Failed to write to Google Sheets:', sheetError)
       // Continue even if Sheets write fails
-    })
+    }
 
     return NextResponse.json(
       { message: 'Email sent successfully' },
